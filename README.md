@@ -20,7 +20,6 @@ A fully automated daily email newsletter service aimed at improving the vocabula
 - [AWS Services](#aws-services)
 - [Apis](#apis)
 - [Notable Features](#notable-features)
-- [Building and running the app](#building-and-running-the-app)
 - [Source code and Architecture](#source-code-and-architecture)
 
 ## Tech Stack
@@ -77,40 +76,6 @@ A fully automated daily email newsletter service aimed at improving the vocabula
     </ul>
   </dd>
 </dl>
-
-## Building and running the app
-1. Generate API keys from Firebase (ensure that you enable Cloud Firestore in the console), AWS & Twilio SendGrid.
-2. Place the `googleServiceAccountKey.json` file in the root directory of the project.
-3. Create a  `.env` file in the root directory of the project and add the following.
-```properties
-# Server Config
-SERVER_LISTEN_PORT = 3000 # DO NOT CHANGE THIS. If you do, ensure that you update the Dockerfile & publish the right port when running a container.
-EMAIL_DELIVERY_TIME_HOUR = 10 # Can be customized; (24 hour time format); Will be according to the server's timezone;
-EMAIL_DELIVERY_TIME_MINUTE = 0 # Can be customized; (24 hour time format); Will be according to the server's timezone;
-SERVER_NEW_WORD_GENERATION_TIME_HOUR = 0 # Can be customized; (24 hour time format); Will be according to the user's timezone;
-SERVER_NEW_WORD_GENERATION_TIME_MINUTE = 0 # Can be customized; (24 hour time format); Will be according to the user's timezone;
-
-# Firebase
-FIREBASE_API_KEY = <firebase_key>
-FIREBASE_AUTH_DOMAIN = <firebase_auth_domain>
-FIREBASE_AUTH_PROJECT_ID = <firebase_auth_project_id>
-FIREBASE_STORAGE_BUCKET = <firebase_storage_bucket>
-FIREBASE_MESSAGING_SENDER_ID = <firebase_sender_id>
-FIREBASE_APP_ID = <firebase_app_id>
-
-# AWS
-AWS_REGION = <your_aws_region>
-
-# Email
-VERIFIED_SOURCE_EMAIL = <twilio_verified_sending_email_identity>
-UNSUBSCRIBE_EMAIL_RECIPIENT = <twilio_verified_sending_email_identity_for_receiving_unsubscribe_requests> (One-Click unsubscribe requests)
-UNSUBSCRIBE_BASE_URL = https://wordmorning.com/api/v1/users/unregister
-
-# Twilio SendGrid
-TWILIO_API_SENDGRID_KEY = <twilio_api_key>
-```
-4. Build a docker image and start a container. (Ensure that you publish port 3000 of the container)
-5. The app will be running at localhost:3000.
 
 ## Source code and Architecture
 - Files follow the kebab-case file naming convention.
