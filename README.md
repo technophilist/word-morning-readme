@@ -50,6 +50,7 @@ A fully automated daily email newsletter service aimed at improving the vocabula
 ## Apis 
 - [DictionaryApi](https://dictionaryapi.dev)
 - [RandomWordApi](https://random-word-api.vercel.app)
+- [Gemini API](https://ai.google.dev/gemini-api)
   
 ## Notable features
 <dl>
